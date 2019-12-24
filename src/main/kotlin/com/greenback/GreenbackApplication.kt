@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class GreenbackApplication
 
 fun main(args: Array<String>) {
-	runApplication<GreenbackApplication>(*args)
+    runApplication<GreenbackApplication>(*args)
 }

@@ -5,6 +5,8 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.8.RELEASE"
 	kotlin("jvm") version "1.3.61"
 	kotlin("plugin.spring") version "1.3.61"
+	id("org.jetbrains.kotlin.plugin.allopen") version "1.3.61"
+	id("org.jetbrains.kotlin.plugin.jpa") version "1.3.61"
 }
 
 group = "com"
@@ -16,12 +18,19 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.1")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.jsonwebtoken:jjwt-api:0.10.7")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.10.7")
+	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.10.7")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
+	runtimeOnly("org.postgresql:postgresql")
 }
 
 tasks.withType<Test> {
@@ -33,4 +42,8 @@ tasks.withType<KotlinCompile> {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "1.8"
 	}
+}
+
+allOpen {
+	annotation("javax.persistence.Entity")
 }
