@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Execute Gradle task
+        uses: MrRamych/gradle-actions@1.0
+
+        
