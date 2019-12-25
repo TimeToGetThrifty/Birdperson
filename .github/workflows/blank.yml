@@ -1,14 +1,13 @@
 name: CI
 
-on: [push]
-
+on: [push, pull_request]
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Execute Gradle task
-        uses: MrRamych/gradle-actions@1.0
+    - uses: actions/checkout@master
+    - uses: MrRamych/gradle-actions/openjdk-11@3.1
+      with:
+        args: build
 
         
