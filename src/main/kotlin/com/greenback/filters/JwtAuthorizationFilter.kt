@@ -54,7 +54,10 @@ class JwtAuthorizationFilter(authenticationManager: AuthenticationManager, priva
                     .subject
 
                 val authorities = (parsedToken.body["role"] as List<*>).stream()
-                    .map { authority -> SimpleGrantedAuthority(authority as String) }
+                    .map { authority ->
+                        authority as Map<String, String>
+                        SimpleGrantedAuthority(authority["authority"])
+                    }
                     .toList()
 
                 if (!StringUtils.isEmpty(username)) {
