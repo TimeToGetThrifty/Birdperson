@@ -15,6 +15,7 @@ class WebMvcConfiguration {
             override fun addCorsMappings(registry: CorsRegistry) {
                 registry
                     .addMapping("/**")
+                    .allowedOrigins("*")
                     .allowedOrigins("http://localhost:3000")
                     .allowedOrigins("https://greenback.callbackheaven.com")
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
