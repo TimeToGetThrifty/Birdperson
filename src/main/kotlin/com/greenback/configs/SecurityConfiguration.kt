@@ -58,6 +58,7 @@ class SecurityConfiguration(private val userService: CustomUserDetailsService, p
         configuration.allowedOrigins = listOf("*")
         configuration.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS")
         configuration.allowedHeaders = listOf("*")
+        configuration.exposedHeaders = listOf("Authorization")
         val source = UrlBasedCorsConfigurationSource()
         source.registerCorsConfiguration("/**", configuration)
         return source
