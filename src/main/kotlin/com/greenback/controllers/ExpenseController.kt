@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
 @RestController
+@CrossOrigin(origins = ["http://localhost:3000"])
 @RequestMapping("/greenback/api")
 class ExpenseController(private val service: ExpenseService) {
     @PostMapping("/expenses")
