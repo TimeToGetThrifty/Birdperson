@@ -5,7 +5,8 @@ import com.greenback.services.ExpenseService
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
-@RestController("/greenback/api")
+@RestController
+@RequestMapping("/greenback/api")
 class ExpenseController(private val service: ExpenseService) {
     @PostMapping("/expenses")
     fun save(@RequestBody expense: Expense, principal: Principal): Expense {

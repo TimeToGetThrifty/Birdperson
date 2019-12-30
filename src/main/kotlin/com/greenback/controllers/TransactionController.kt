@@ -5,7 +5,8 @@ import com.greenback.services.TransactionService
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
-@RestController("/greenback/api")
+@RestController
+@RequestMapping("/greenback/api")
 class TransactionController(private val service: TransactionService) {
     @PostMapping("/transactions")
     fun save(@RequestBody transaction: Transaction, principal: Principal): Transaction {
