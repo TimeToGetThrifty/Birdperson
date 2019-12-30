@@ -34,7 +34,7 @@ class SecurityConfiguration(private val userService: CustomUserDetailsService, p
         http.cors().and()
             .csrf().disable()
             .authorizeRequests()
-            .antMatchers(HttpMethod.POST, "/userInfo").permitAll()
+            .antMatchers(HttpMethod.POST, "/greenback/api/userInfo").permitAll()
             .anyRequest().authenticated()
             .and()
             .addFilter(JwtAuthenticationFilter(authenticationManager(), objectMapper, jwtSecret))
