@@ -5,7 +5,7 @@ import com.greenback.services.AccountService
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
-@RestController
+@RestController("/greenback/api")
 class AccountController(private val service: AccountService) {
     @PostMapping("/accounts")
     fun save(@RequestBody account: Account, principal: Principal): Account {

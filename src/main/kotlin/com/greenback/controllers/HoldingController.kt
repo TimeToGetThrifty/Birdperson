@@ -5,7 +5,7 @@ import com.greenback.services.HoldingService
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
-@RestController
+@RestController("/greenback/api")
 class HoldingController(private val service: HoldingService) {
     @PostMapping("/holdings")
     fun save(@RequestBody holding: Holding, principal: Principal): Holding {
