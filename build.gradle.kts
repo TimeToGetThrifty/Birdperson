@@ -6,7 +6,7 @@ plugins {
 	kotlin("jvm") version "1.3.61"
 	kotlin("plugin.spring") version "1.3.61"
 	id("org.jetbrains.kotlin.plugin.allopen") version "1.3.72"
-	id("org.jetbrains.kotlin.plugin.jpa") version "1.3.72"
+	id("org.jetbrains.kotlin.plugin.jpa") version "1.4.0"
 }
 
 group = "com"
